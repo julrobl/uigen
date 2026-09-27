@@ -26,21 +26,21 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
           >
             {message.role === "assistant" && (
               <div className="flex-shrink-0">
-                <div className="w-9 h-9 rounded-lg bg-white border border-neutral-200 shadow-sm flex items-center justify-center">
-                  <Bot className="h-4.5 w-4.5 text-neutral-700" />
+                <div className="w-9 h-9 rounded-lg bg-zinc-800 border border-white/[0.08] flex items-center justify-center">
+                  <Bot className="h-4.5 w-4.5 text-zinc-300" />
                 </div>
               </div>
             )}
-            
+
             <div className={cn(
               "flex flex-col gap-2 max-w-[85%]",
               message.role === "user" ? "items-end" : "items-start"
             )}>
               <div className={cn(
                 "rounded-xl px-4 py-3",
-                message.role === "user" 
-                  ? "bg-blue-600 text-white shadow-sm" 
-                  : "bg-white text-neutral-900 border border-neutral-200 shadow-sm"
+                message.role === "user"
+                  ? "bg-violet-600 text-white"
+                  : "bg-zinc-800 text-zinc-100 border border-white/[0.08]"
               )}>
                 <div className="text-sm">
                   {message.parts ? (
@@ -59,21 +59,21 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                             );
                           case "reasoning":
                             return (
-                              <div key={partIndex} className="mt-3 p-3 bg-white/50 rounded-md border border-neutral-200">
-                                <span className="text-xs font-medium text-neutral-600 block mb-1">Reasoning</span>
-                                <span className="text-sm text-neutral-700">{part.reasoning}</span>
+                              <div key={partIndex} className="mt-3 p-3 bg-zinc-900/60 rounded-md border border-white/[0.08]">
+                                <span className="text-xs font-medium text-zinc-400 block mb-1">Reasoning</span>
+                                <span className="text-sm text-zinc-300">{part.reasoning}</span>
                               </div>
                             );
                           case "tool-invocation":
                             return <ToolInvocationBadge key={partIndex} toolInvocation={part.toolInvocation} />;
                           case "source":
                             return (
-                              <div key={partIndex} className="mt-2 text-xs text-neutral-500">
+                              <div key={partIndex} className="mt-2 text-xs text-zinc-500">
                                 Source: {JSON.stringify(part.source)}
                               </div>
                             );
                           case "step-start":
-                            return partIndex > 0 ? <hr key={partIndex} className="my-3 border-neutral-200" /> : null;
+                            return partIndex > 0 ? <hr key={partIndex} className="my-3 border-white/[0.08]" /> : null;
                           default:
                             return null;
                         }
@@ -81,7 +81,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                       {isLoading &&
                         message.role === "assistant" &&
                         messages.indexOf(message) === messages.length - 1 && (
-                          <div className="flex items-center gap-2 mt-3 text-neutral-500">
+                          <div className="flex items-center gap-2 mt-3 text-zinc-400">
                             <Loader2 className="h-3 w-3 animate-spin" />
                             <span className="text-sm">Generating...</span>
                           </div>
@@ -96,7 +96,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                   ) : isLoading &&
                     message.role === "assistant" &&
                     messages.indexOf(message) === messages.length - 1 ? (
-                    <div className="flex items-center gap-2 text-neutral-500">
+                    <div className="flex items-center gap-2 text-zinc-400">
                       <Loader2 className="h-3 w-3 animate-spin" />
                       <span className="text-sm">Generating...</span>
                     </div>
@@ -104,10 +104,10 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                 </div>
               </div>
             </div>
-            
+
             {message.role === "user" && (
               <div className="flex-shrink-0">
-                <div className="w-9 h-9 rounded-lg bg-blue-600 shadow-sm flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-violet-600 flex items-center justify-center">
                   <User className="h-4.5 w-4.5 text-white" />
                 </div>
               </div>

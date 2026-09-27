@@ -101,11 +101,11 @@ export function PreviewFrame() {
   if (error) {
     if (error === "firstLoad") {
       return (
-        <div className="h-full flex items-center justify-center p-8 bg-gray-50">
+        <div className="h-full flex items-center justify-center p-8 bg-zinc-950">
           <div className="text-center max-w-md">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-violet-500/10 border border-violet-500/20 mb-6">
               <svg
-                className="h-8 w-8 text-blue-600"
+                className="h-8 w-8 text-violet-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -113,19 +113,19 @@ export function PreviewFrame() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              Welcome to UI Generator
+            <h3 className="text-lg font-semibold text-zinc-100 mb-2">
+              Live preview
             </h3>
-            <p className="text-sm text-gray-600 mb-3">
-              Start building React components with AI assistance
+            <p className="text-sm text-zinc-400 mb-3">
+              Your component will render here as it's being built
             </p>
-            <p className="text-xs text-gray-500">
-              Ask the AI to create your first component to see it live here
+            <p className="text-xs text-zinc-600">
+              Start chatting to generate your first component
             </p>
           </div>
         </div>
@@ -133,16 +133,16 @@ export function PreviewFrame() {
     }
 
     return (
-      <div className="h-full flex items-center justify-center p-8 bg-gray-50">
+      <div className="h-full flex items-center justify-center p-8 bg-zinc-950">
         <div className="text-center max-w-md">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
-            <AlertCircle className="h-8 w-8 text-gray-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-zinc-800 border border-white/[0.08] mb-6">
+            <AlertCircle className="h-8 w-8 text-zinc-500" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <h3 className="text-lg font-semibold text-zinc-100 mb-2">
             No Preview Available
           </h3>
-          <p className="text-sm text-gray-500">{error}</p>
-          <p className="text-xs text-gray-400 mt-2">
+          <p className="text-sm text-zinc-400">{error}</p>
+          <p className="text-xs text-zinc-600 mt-2">
             Start by creating a React component using the AI assistant
           </p>
         </div>
